@@ -6,11 +6,16 @@ class Contact extends Component {
     const { name, email, phone } = this.props;
     return (
       <div>
-        <h5>{name}</h5>
-        <ul>
-          <li>Email: {email}</li>
-          <li>Phone: {phone}</li>
-        </ul>
+        <div className="container push-s9">
+          <ul className="collection with-header">
+            <li className="collection-header">
+              <h5>{name}</h5>
+            </li>
+            <li className="collection-item">Email: {email}</li>
+            <li className="collection-item">Phone: {phone}</li>
+            <li />
+          </ul>
+        </div>
       </div>
     );
   }

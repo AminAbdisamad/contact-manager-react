@@ -3,9 +3,26 @@ import PropTypes from 'prop-types';
 
 const Header = props => {
   return (
-    <div>
-      <h1 style={{ color: 'green' }}>{props.branding}</h1>
-    </div>
+    <nav>
+      <div class="nav-wrapper indigo darken-1">
+        <div className="container">
+          <a href="/" class="brand-logo">
+            Contact Manager
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/Add">Add</a>
+            </li>
+            <li>
+              <a href="/contacts">Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 Header.defaultProps = {
