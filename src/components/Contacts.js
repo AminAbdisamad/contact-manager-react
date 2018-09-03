@@ -42,7 +42,13 @@ class Contacts extends Component {
     ]
   };
   deleteContact = id => {
-    console.log(id);
+    const { contacts } = this.state;
+    const filteredContact = contacts.filter(contact => {
+      return contact.id !== id;
+    });
+    this.setState({
+      contacts: filteredContact
+    });
   };
   render() {
     const { contacts } = this.state;
