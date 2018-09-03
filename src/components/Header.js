@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 const Header = props => {
   return (
     <nav>
-      <div class="nav-wrapper indigo darken-1">
+      <div className="nav-wrapper indigo darken-1">
         <div className="container">
-          <a href="/" class="brand-logo">
+          <a href="/" className="brand-logo">
             Contact Manager
           </a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <a href="/">Home</a>
             </li>

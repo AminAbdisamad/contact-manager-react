@@ -2,18 +2,59 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Contact extends Component {
+  state = {
+    showState: false
+  };
+  // expends the LI when you clicked
+  expendOnClick = () => {
+    this.setState({ showState: !this.state.showState });
+  };
+  // Delete props for the delete icon
+  deleteIteam = () => {
+    this.props.deleteClickHandler();
+  };
   render() {
-    const { name, email, phone } = this.props;
+    const { name, email, phone, company } = this.props.contact;
+    const { showState } = this.state;
     return (
       <div>
         <div className="container push-s9">
           <ul className="collection with-header">
             <li className="collection-header">
-              <h5>{name}</h5>
+              <h6 className="blue-text">
+                {name}
+                {/* Delete Icon */}
+                <i
+                  onClick={this.deleteIteam}
+                  className="material-icons secondary-content right red-text small"
+                  style={{ cursor: 'pointer' }}
+                >
+                  delete
+                </i>
+                {/* Edit Icon */}
+                <i
+                  className="material-icons secondary-content right green-text"
+                  style={{ cursor: 'pointer' }}
+                >
+                  edit
+                </i>
+                {/* Expend Icon */}
+                <i
+                  onClick={this.expendOnClick}
+                  className="material-icons  right blue-text"
+                  style={{ cursor: 'pointer' }}
+                >
+                  expand_more
+                </i>
+              </h6>
             </li>
-            <li className="collection-item">Email: {email}</li>
-            <li className="collection-item">Phone: {phone}</li>
-            <li />
+            {showState ? (
+              <ul>
+                <li className="collection-item">Email: {email}</li>
+                <li className="collection-item">Company: {company}</li>
+                <li className="collection-item">Phone: {phone}</li>
+              </ul>
+            ) : null}
           </ul>
         </div>
       </div>
@@ -22,8 +63,9 @@ class Contact extends Component {
 }
 // Proptypes
 Contact.propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired
+  contact: PropTypes.object.isRequired,
+  // email: PropTypes.string.isRequired,
+  // phone: PropTypes.string.isRequired
+  deleteClickHandler: PropTypes.func.isRequired
 };
 export default Contact;
